@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/roadlify/$1" }
+  ],
+  "cleanUrls": true
+}

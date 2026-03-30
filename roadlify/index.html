@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roadlify AI | Bridge Your Syllabus to Tech Reality</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    body { font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif; }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+
+<!-- SCREEN 0 — LANDING -->
+<div id="screen-landing" class="screen active" style="flex-direction:column;overflow-y:auto;min-height:100vh;">
+
+  <nav class="land-nav">
+    <div class="land-nav-logo">Roadlify <span>AI</span></div>
+    <div class="land-nav-links">
+      <a href="#features" class="active">Features</a>
+      <a href="#stories">Success Stories</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="land-nav-right">
+      <button class="theme-btn" onclick="toggleTheme()"><span class="material-symbols-outlined">light_mode</span></button>
+      <button class="land-signup-btn" onclick="showScreen('auth')">Sign Up</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="land-hero">
+    <div class="land-hero-blob land-blob-1"></div>
+    <div class="land-hero-blob land-blob-2"></div>
+    <div class="land-dotgrid"></div>
+    <div class="land-hero-inner">
+      <div class="land-hero-left">
+        <div class="land-badge"><span class="land-badge-dot"></span>AI-Powered Navigation</div>
+        <h1 class="land-h1">Bridge Your College <span class="land-h1-accent">Syllabus</span> to Tech Reality.</h1>
+        <p class="land-hero-sub">Modern career navigation to turn your academic foundation into industry-ready expertise. Don't just graduate—evolve with intelligence.</p>
+        <div class="land-hero-btns">
+          <button class="land-cta-btn" onclick="showScreen('auth')">Start Your Journey</button>
+          <button class="land-ghost-btn"><span class="material-symbols-outlined">play_circle</span>See it in Action</button>
+        </div>
+      </div>
+      <div class="land-hero-right">
+        <div class="land-vis-card glass-card">
+          <div class="land-vis-img">
+            <div class="land-dotgrid-sm"></div>
+            <svg class="land-vis-svg" viewBox="0 0 300 160" preserveAspectRatio="none">
+              <path d="M20,140 C80,80 140,100 200,50 S260,20 290,30" stroke="var(--accent2)" stroke-width="2.5" fill="none" stroke-dasharray="5,3" opacity="0.5"/>
+              <path d="M20,130 C70,110 120,70 180,90 S250,110 290,60" stroke="var(--teal)" stroke-width="1.5" fill="none" opacity="0.3"/>
+              <circle cx="20" cy="140" r="5" fill="var(--accent)"/>
+              <circle cx="290" cy="30" r="6" fill="var(--accent2)" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="land-vis-footer">
+            <div>
+              <div class="land-vis-lbl">Current Path</div>
+              <div class="land-vis-val">CS Major → AI Engineer</div>
+            </div>
+            <div class="land-vis-chip"><span class="material-symbols-outlined">trending_up</span></div>
+          </div>
+        </div>
+        <div class="land-match-badge glass-card">
+          <div class="land-match-num">85%</div>
+          <div class="land-match-lbl">Match Score</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="land-features">
+    <div class="land-sec-header">
+      <h2>Tools for the <span class="land-h1-accent">Next Gen</span> Professional</h2>
+      <p>We use deep-learning models to analyze your curriculum and map it directly to real-world job requirements.</p>
+    </div>
+    <div class="land-feat-grid">
+      <div class="land-feat-card glass-card land-feat-coming">
+        <div class="land-feat-coming-badge">Coming Soon</div>
+        <div class="land-feat-icon" style="background:rgba(0,100,121,.08)"><span class="material-symbols-outlined" style="color:var(--accent2);opacity:.6">auto_stories</span></div>
+        <h3 style="opacity:.7">Syllabus Alignment</h3>
+        <p style="opacity:.6">Upload your PDF syllabus and our AI will identify exact technical gaps needed for high-tier internships — <em>launching soon</em>.</p>
+      </div>
+      <div class="land-feat-card glass-card land-feat-coming">
+        <div class="land-feat-coming-badge">Coming Soon</div>
+        <div class="land-feat-icon" style="background:rgba(45,212,191,.08)"><span class="material-symbols-outlined" style="color:var(--teal);opacity:.6">hub</span></div>
+        <h3 style="opacity:.7">Industry Demands Map</h3>
+        <p style="opacity:.6">Real-time visualisation of trending skills across Top 500 tech companies updated every 24 hours — <em>launching soon</em>.</p>
+      </div>
+      <div class="land-feat-card glass-card">
+        <div class="land-feat-icon" style="background:rgba(210,153,34,.1)"><span class="material-symbols-outlined" style="color:var(--amber)">terminal</span></div>
+        <h3>AI Career Roadmap</h3>
+        <p>Personalised week-by-week roadmap tailored to your skills and goal — with role-specific tasks, resources, and a built-in day planner.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Stats -->
+  <section class="land-stats">
+    <div class="land-stats-inner glass-card">
+      <div class="land-stats-header">
+        <span class="land-stats-eyebrow">🚀 Our Goals for 2026</span>
+        <p class="land-stats-sub">We're just getting started — here's what we're building towards</p>
+      </div>
+      <div class="land-stats-grid">
+        <div class="land-stat">
+          <div class="land-stat-num">500+</div>
+          <div class="land-stat-lbl">Students to Guide</div>
+          <div class="land-stat-note">Target by end of 2026</div>
+        </div>
+        <div class="land-stat">
+          <div class="land-stat-num">25+</div>
+          <div class="land-stat-lbl">Partner Universities</div>
+          <div class="land-stat-note">Partnerships in progress</div>
+        </div>
+        <div class="land-stat">
+          <div class="land-stat-num">78%</div>
+          <div class="land-stat-lbl">Internship Success Rate</div>
+          <div class="land-stat-note">Projected from beta pilots</div>
+        </div>
+        <div class="land-stat">
+          <div class="land-stat-num">2.1×</div>
+          <div class="land-stat-lbl">Salary Increase</div>
+          <div class="land-stat-note">Industry benchmark we target</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="land-cta-section">
+    <h2>Ready to transcend your curriculum?</h2>
+    <p>Join thousands of students building the future of their careers with Roadlify AI today.</p>
+    <button class="land-cta-white" onclick="showScreen('auth')">Get Free Early Access</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="land-footer">
+    <div class="land-footer-inner">
+      <div><div class="land-footer-logo">Roadlify AI</div><p>© 2025 Roadlify AI. Bridging the gap with intelligence.</p></div>
+      <div class="land-footer-links">
+        <div><b>Company</b><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+        <div><b>Support</b><a href="#">Contact Us</a></div>
+        <div><b>Social</b><a href="#">Twitter / X</a><a href="#">LinkedIn</a><a href="#">Discord</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- SCREEN 1 — AUTH -->
+<div id="screen-auth" class="screen">
+  <div class="auth-blob blob-1"></div>
+  <div class="auth-blob blob-2"></div>
+  <div class="auth-grid"></div>
+
+  <div class="auth-top-bar" style="display:flex;gap:.75rem;align-items:center;">
+    <button class="btn-ghost" onclick="showScreen('landing')" style="font-size:.8rem;">
+      <span class="material-symbols-outlined" style="font-size:.9rem;">arrow_back</span> Back
+    </button>
+    <button class="theme-btn" onclick="toggleTheme()"><span class="material-symbols-outlined">light_mode</span></button>
+  </div>
+
+  <div class="auth-container">
+    <div class="auth-brand">
+      <div class="auth-brand-logo"><span class="material-symbols-outlined" style="font-size:1.6rem;">route</span></div>
+      <h1>Roadlify <span>AI</span></h1>
+      <p>Bridge your college syllabus to tech reality.</p>
+    </div>
+    <div class="auth-card">
+      <h2 id="auth-heading">Create Your Account</h2>
+      <p id="auth-subtext">Start your personalised career journey with AI-powered guidance.</p>
+      <div class="auth-inputs">
+        <div class="auth-input-wrap" id="auth-name-wrap">
+          <span class="material-symbols-outlined auth-icon">person</span>
+          <input class="auth-inp" id="auth-name" type="text" placeholder="Your full name" onkeydown="handleAuthKey(event)"/>
+        </div>
+        <div class="auth-input-wrap">
+          <span class="material-symbols-outlined auth-icon">mail</span>
+          <input class="auth-inp" id="auth-email" type="email" placeholder="Email address" onkeydown="handleAuthKey(event)"/>
+        </div>
+        <div class="auth-input-wrap">
+          <span class="material-symbols-outlined auth-icon">lock</span>
+          <input class="auth-inp" id="auth-password" type="password" placeholder="Password (min 6 characters)" onkeydown="handleAuthKey(event)"/>
+        </div>
+        <button class="auth-login-btn email-btn" id="auth-submit-btn" onclick="loginWithEmail()">
+          <div class="btn-icon"><span class="material-symbols-outlined" style="font-size:1rem;">person_add</span></div>Sign Up with Email
+        </button>
+      </div>
+      <div class="auth-toggle" id="auth-toggle-link" style="text-align:center;font-size:.82rem;margin-top:.5rem;color:var(--text3);">
+        Already have an account? <a href="#" onclick="event.preventDefault();toggleAuthMode()" style="color:var(--accent2);font-weight:600;text-decoration:none;">Sign In</a>
+      </div>
+      <div class="auth-divider">or connect with</div>
+      <button class="auth-login-btn google" onclick="loginWithGoogle()">
+        <div class="btn-icon"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
+        Continue with Google
+      </button>
+      <div class="auth-guest">
+        <button class="auth-guest-btn" onclick="guestLogin()">Guest Login <span class="material-symbols-outlined">arrow_forward</span></button>
+        <p>Just exploring? Build a temporary roadmap.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SCREEN 2 — CHAT -->
+<div id="screen-chat" class="screen">
+  <div class="chat-topbar">
+    <div class="chat-brand">
+      <div class="chat-brand-name">Roadlify <span>AI</span></div>
+      <div class="status-dot"></div>
+    </div>
+    <div class="chat-topbar-right">
+      <button class="btn-ghost" id="view-dash-btn" onclick="goToDashboard()" style="display:none;">
+        <span class="material-symbols-outlined" style="font-size:.9rem;">dashboard</span> View Dashboard
+      </button>
+      <button class="theme-btn" onclick="toggleTheme()"><span class="material-symbols-outlined">light_mode</span></button>
+    </div>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input-bar">
+    <div class="chat-input-row">
+      <textarea class="chat-ta" id="chat-input" placeholder="Tell me your current skills and career goal..." rows="1" onkeydown="handleChatKey(event)" oninput="autoResize(this)"></textarea>
+      <button class="send-btn" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- SCREEN 3 — DASHBOARD -->
+<div id="screen-dashboard" class="screen">
+  <aside class="sidebar">
+    <div class="sidebar-logo">Roadlify <span>AI</span></div>
+    <div class="sidebar-profile">
+      <div class="sidebar-avatar" id="dash-avatar">GE</div>
+      <div>
+        <div class="sidebar-name" id="dash-name">Guest Explorer</div>
+        <div class="sidebar-meta" id="dash-meta">AI/ML Engineer · 36m</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="sidebar-nav-item" onclick="switchSideNav(this,'careeriq')">
+        <span class="material-symbols-outlined">insights</span> Dashboard
+      </button>
+      <button class="sidebar-nav-item active" onclick="switchSideNav(this,'roadmap')">
+        <span class="material-symbols-outlined">alt_route</span> Roadmap
+      </button>
+      <button class="sidebar-nav-item" onclick="switchSideNav(this,'planner')">
+        <span class="material-symbols-outlined">bolt</span> Day Planner
+      </button>
+      <button class="sidebar-nav-item" onclick="switchSideNav(this,'streaks')">
+        <span class="material-symbols-outlined">local_fire_department</span> Streaks
+      </button>
+      <button class="sidebar-nav-item" onclick="switchSideNav(this,'todo')">
+        <span class="material-symbols-outlined">checklist</span> To-Do List
+      </button>
+    </nav>
+    <div class="sidebar-upgrade">
+      <div class="sidebar-upgrade-eyebrow">Go Pro</div>
+      <div class="sidebar-upgrade-title">Unlimited AI Mentorship</div>
+      <button class="sidebar-upgrade-btn">Upgrade Now</button>
+    </div>
+    <div class="sidebar-footer">
+      <button class="sidebar-footer-btn" onclick="toggleTheme()"><span class="material-symbols-outlined">light_mode</span> Toggle Theme</button>
+      <button class="sidebar-footer-btn"><span class="material-symbols-outlined">help</span> Help</button>
+      <button class="sidebar-footer-btn logout" onclick="logout()"><span class="material-symbols-outlined">logout</span> Logout</button>
+    </div>
+  </aside>
+
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <div class="dash-topbar-left">
+        <button class="back-chat-btn" onclick="goToChat()">← Chat</button>
+        <div class="dash-topnav-tabs">
+          <button class="dash-topnav-tab" onclick="switchTopNav(this,'careeriq')">Dashboard</button>
+          <button class="dash-topnav-tab active" onclick="switchTopNav(this,'roadmap')">Roadmap</button>
+          <button class="dash-topnav-tab" onclick="switchTopNav(this,'planner')">Planner</button>
+          <button class="dash-topnav-tab" onclick="switchTopNav(this,'streaks')">Streaks</button>
+          <button class="dash-topnav-tab" onclick="switchTopNav(this,'todo')">To-Do</button>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:.65rem;">
+        <span class="goal-pill">🎯 <span id="nav-goal-text">My Goal</span></span>
+        <button class="theme-btn" onclick="toggleTheme()"><span class="material-symbols-outlined">light_mode</span></button>
+      </div>
+    </div>
+    <div class="dash-content">
+      <div id="dtab-careeriq" class="dash-tab-panel"></div>
+      <div id="dtab-roadmap" class="dash-tab-panel active"></div>
+      <div id="dtab-planner" class="dash-tab-panel"></div>
+      <div id="dtab-streaks" class="dash-tab-panel"></div>
+      <div id="dtab-todo"    class="dash-tab-panel"></div>
+    </div>
+  </div>
+
+  <button class="fab" onclick="goToChat()">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">smart_toy</span>
+    <div class="fab-badge"></div>
+  </button>
+  <nav class="mobile-nav">
+    <span class="material-symbols-outlined" onclick="switchTopNav(null,'careeriq')">insights</span>
+    <span class="material-symbols-outlined active-icon" onclick="switchTopNav(null,'roadmap')">alt_route</span>
+    <span class="material-symbols-outlined" onclick="switchTopNav(null,'planner')">bolt</span>
+    <span class="material-symbols-outlined" onclick="switchTopNav(null,'streaks')">local_fire_department</span>
+    <span class="material-symbols-outlined" onclick="switchTopNav(null,'todo')">checklist</span>
+  </nav>
+</div>
+
+<!-- Firebase SDK (compat) -->
+<script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-auth-compat.js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/state.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/mockDashboard.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/app.js"></script>
+<script>
+function switchSideNav(el, tabName) {
+  document.querySelectorAll(".sidebar-nav-item").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
+  const topBtn = document.querySelector(`.dash-topnav-tab[onclick*="${tabName}"]`);
+  switchDashTab(tabName, topBtn);
+}
+function switchTopNav(el, tabName) {
+  document.querySelectorAll(".dash-topnav-tab").forEach(b => b.classList.remove("active"));
+  if(el) el.classList.add("active");
+  document.querySelectorAll(".sidebar-nav-item").forEach(b => b.classList.remove("active"));
+  const sideBtn = document.querySelector(`.sidebar-nav-item[onclick*="${tabName}"]`);
+  if(sideBtn) sideBtn.classList.add("active");
+  switchDashTab(tabName, el);
+}
+</script>
+</body>
+</html>
