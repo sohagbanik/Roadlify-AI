@@ -1,7 +1,7 @@
 // ============================================================
 //  config.js  ←  ENTER YOUR GROQ API KEY HERE (LINE 14)
 // ============================================================
-const GROQ_API_KEY = "";   // ← LINE 14
+const GROQ_API_KEY = "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";   // ← LINE 14
 
 const GROQ_MODEL   = "llama-3.3-70b-versatile";
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
