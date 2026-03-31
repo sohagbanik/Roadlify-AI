@@ -1,6 +1,56 @@
 // dashboard.js — Roadlify AI
 
 // ══════════════════════════════════════════════════
+//  HELPER: Detect if a goal is tech/coding-related
+// ══════════════════════════════════════════════════
+
+function isTechGoal(goal) {
+  if (!goal) return false;
+  const g = goal.toLowerCase();
+  const techKeywords = [
+    "developer", "engineer", "programmer", "coder", "coding",
+    "software", "web dev", "frontend", "backend", "full stack",
+    "fullstack", "mern", "mean", "devops", "cloud", "sre",
+    "data sci", "data engineer", "machine learning", "deep learning",
+    "ai engineer", "ml engineer", "cybersecurity", "cyber", "security",
+    "blockchain", "web3", "mobile dev", "app dev", "ios dev",
+    "android dev", "game dev", "qa engineer", "test engineer",
+    "python", "javascript", "java ", "react", "node", "typescript",
+    "flutter", "dart", "swift", "kotlin", "ruby", "php", "golang",
+    "rust", "c++", "c#", ".net", "sql", "database admin", "dba",
+    "system admin", "network engineer", "it support", "it admin",
+    "ui/ux", "ux design", "ui design", "product design",
+    "tech", "computing", "programming", "hacking", "pentesting",
+    "ethical hacker", "infosec", "information security"
+  ];
+  return techKeywords.some(kw => g.includes(kw));
+}
+
+// Returns the appropriate recommendation HTML for a roadmap phase card
+function getPhaseRecommendation(goal) {
+  if (isTechGoal(goal)) {
+    return `<span class="material-symbols-outlined" style="font-size:13px">code</span>Recommended: Join a hackathon during this phase!`;
+  }
+  // Non-tech: suggest relevant professional activities
+  return `<span class="material-symbols-outlined" style="font-size:13px">school</span>Recommended: Attend a workshop or industry event during this phase!`;
+}
+
+// Returns the appropriate quick-action buttons for the planner "today" card
+function getPlannerActions(goal) {
+  if (isTechGoal(goal)) {
+    return `
+        <div class="planner-action"><span class="material-symbols-outlined">play_circle</span> Watch Video Guide</div>
+        <div class="planner-action"><span class="material-symbols-outlined">code</span> Coding Exercises</div>
+        <div class="planner-action"><span class="material-symbols-outlined">chat_bubble</span> Ask Roadlify AI</div>`;
+  }
+  // Non-tech: show skill-appropriate actions
+  return `
+        <div class="planner-action"><span class="material-symbols-outlined">play_circle</span> Watch Video Guide</div>
+        <div class="planner-action"><span class="material-symbols-outlined">edit_note</span> Practice Exercises</div>
+        <div class="planner-action"><span class="material-symbols-outlined">chat_bubble</span> Ask Roadlify AI</div>`;
+}
+
+// ══════════════════════════════════════════════════
 //  CORE SETUP
 // ══════════════════════════════════════════════════
 
@@ -84,8 +134,13 @@ function buildDaysForWeek(goal, phaseIdx, phase, weekInPhase, totalWeeks, fracti
     const rotated = [...phase.weeklyPlan];
     if (weekInPhase > 0) {
       // Shift focus slightly — practice more in later weeks
-      rotated[5] = "Project build — apply this week's concepts";
-      rotated[6] = "Review + push code to GitHub";
+      if (isTechGoal(goal)) {
+        rotated[5] = "Project build — apply this week's concepts";
+        rotated[6] = "Review + push code to GitHub";
+      } else {
+        rotated[5] = "Apply this week's concepts in a practical project";
+        rotated[6] = "Review progress + plan ahead";
+      }
     }
     return rotated.map((desc, i) => dayFromDesc(desc, i, goal, phaseIdx));
   }
@@ -388,16 +443,27 @@ function getRoleWeekPlan(goal, phaseIdx, weekInPhase, totalWeeks, phase) {
   }
 
   // ── GENERIC FALLBACK ──
-  const generic = [
-    `Core concept study — read official docs + take notes on ${phase.name}`,
-    `Hands-on practice — follow a tutorial for ${(phase.skills||["core skills"])[0]}`,
-    `Build a small feature using ${(phase.skills||["the skill"])[1] || "this week's topic"}`,
-    `Practice exercises — HackerRank or official exercises`,
-    `Project work — implement this week's concepts in your project`,
-    `Debug + refine + write documentation for what you built`,
-    `Push to GitHub + review progress + plan next week`
+  if (isTechGoal(g)) {
+    return [
+      `Core concept study — read official docs + take notes on ${phase.name}`,
+      `Hands-on practice — follow a tutorial for ${(phase.skills||["core skills"])[0]}`,
+      `Build a small feature using ${(phase.skills||["the skill"])[1] || "this week's topic"}`,
+      `Practice exercises — HackerRank or official exercises`,
+      `Project work — implement this week's concepts in your project`,
+      `Debug + refine + write documentation for what you built`,
+      `Push to GitHub + review progress + plan next week`
+    ];
+  }
+  // Non-tech generic fallback
+  return [
+    `Core concept study — read guides + take notes on ${phase.name}`,
+    `Hands-on practice — apply ${(phase.skills||["core skills"])[0]} in a real scenario`,
+    `Skill drill — practice ${(phase.skills||["the skill"])[1] || "this week's topic"} with exercises`,
+    `Research — study industry trends and best practices`,
+    `Project work — apply this week's concepts in a practical project`,
+    `Review + refine + document what you learned`,
+    `Rest + reflect on progress + plan next week`
   ];
-  return generic;
 }
 
 // ══════════════════════════════════════════════════
@@ -453,7 +519,7 @@ function buildRoadmapTab(data) {
           <div class="tl-sub-label">Week-by-week breakdown (${weeks} weeks)</div>
           <div class="tl-chips">${buildWeekChipsForPhase(i, weeks, data)}</div>
           ${ph.resources&&ph.resources.length?`<div class="tl-sub-label">Resources</div><div class="tl-chips">${ph.resources.map(r=>`<span class="res-chip ${r.type||''}">${r.name}</span>`).join("")}</div>`:""}
-          <div class="tl-hackathon"><span class="material-symbols-outlined" style="font-size:13px">event</span>Recommended: Join a hackathon during this phase!</div>
+          <div class="tl-hackathon">${getPhaseRecommendation(data.goal)}</div>
         </div>
       </div>`;
     wrap.appendChild(div);
@@ -619,10 +685,7 @@ function renderPlannerWeek(weekOffset, data) {
       <div style="padding:.4rem 1.35rem ${isToday ? ".1rem" : ".75rem"};font-size:.78rem;color:var(--text2);line-height:1.55;border-top:1px solid var(--border);">
         📌 ${escHtml(dayData.desc)}
       </div>
-      ${isToday ? `<div class="planner-day-actions">
-        <div class="planner-action"><span class="material-symbols-outlined">play_circle</span> Watch Video Guide</div>
-        <div class="planner-action"><span class="material-symbols-outlined">code</span> Coding Exercises</div>
-        <div class="planner-action"><span class="material-symbols-outlined">chat_bubble</span> Ask Roadlify AI</div>
+      ${isToday ? `<div class="planner-day-actions">${getPlannerActions(data?.goal)}
       </div>` : ""}`;
     list.appendChild(card);
   }
