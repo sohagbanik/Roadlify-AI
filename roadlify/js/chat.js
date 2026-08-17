@@ -110,7 +110,7 @@ async function sendMessage() {
   } catch (err) {
     hideTyping();
     const errs = {
-      INVALID_KEY:    "❌ **Invalid Groq API key.** Open `js/config.js` and check line 14.",
+      INVALID_KEY:    "❌ **Invalid Groq API key.** Please check the `GROQ_API_KEY` environment variable in Vercel settings.",
       QUOTA_EXCEEDED: "⏳ **Rate limit hit.** Wait 30 seconds and try again.",
     };
     addBotMessage(errs[err.message] || `⚠️ Error: ${err.message}`);

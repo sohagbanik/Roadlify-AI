@@ -1,10 +1,8 @@
 // ============================================================
-//  config.js  ←  ENTER YOUR GROQ API KEY HERE (LINE 14)
+//  config.js  —  App configuration (API key is server-side)
 // ============================================================
-const GROQ_API_KEY = "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";   // ← LINE 14
-
 const GROQ_MODEL   = "llama-3.3-70b-versatile";
-const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
+const GROQ_PROXY   = "/api/groq";  // Vercel serverless proxy (key stays secret)
 
 const SYSTEM_PROMPT = `You are Roadlify AI, an expert career advisor for college students with deep knowledge from roadmap.sh, industry job descriptions, and real hiring requirements.
 

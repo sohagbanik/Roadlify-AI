@@ -1,9 +1,8 @@
 async function callGroq(history) {
   const messages = [{ role: "system", content: SYSTEM_PROMPT }, ...history];
-  const apiKey = (typeof GROQ_API_KEY !== "undefined" && GROQ_API_KEY) ? GROQ_API_KEY.trim() : (State.groqKey ? State.groqKey.trim() : "");
-  const res = await fetch(GROQ_API_URL, {
+  const res = await fetch(GROQ_PROXY, {
     method: "POST",
-    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + apiKey },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ model: GROQ_MODEL, messages, temperature: 0.7, max_completion_tokens: 4000 }),
   });
   const data = await res.json();
@@ -20,3 +19,4 @@ function parseRoadmap(reply) {
   if (!m) return null;
   try { return JSON.parse(m[1]); } catch { return null; }
 }
+

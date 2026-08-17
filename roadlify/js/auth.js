@@ -24,10 +24,6 @@ function initAuth() {
         loginMethod: firebaseUser.isAnonymous ? "guest" : (firebaseUser.providerData[0]?.providerId || "email"),
       };
 
-      // Wire up Groq key
-      if (typeof GROQ_API_KEY === "string" && GROQ_API_KEY.startsWith("gsk_")) {
-        State.groqKey = GROQ_API_KEY;
-      }
 
       // Go to chat if we're still on landing or auth screen
       const currentScreen = document.querySelector(".screen.active");
