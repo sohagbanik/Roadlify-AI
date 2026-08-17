@@ -9,7 +9,6 @@ let isSignUpMode = true;
 
 // ── Initialize Auth — listen for Firebase auth state changes ──
 function initAuth() {
-  applyTheme(State.theme);
 
   // Listen for Firebase auth state changes
   firebaseAuth.onAuthStateChanged((firebaseUser) => {
